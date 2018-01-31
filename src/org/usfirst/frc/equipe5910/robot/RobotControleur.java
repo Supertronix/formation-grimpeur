@@ -1,6 +1,7 @@
 package org.usfirst.frc.equipe5910.robot;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.VictorSP;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -11,6 +12,11 @@ import edu.wpi.first.wpilibj.IterativeRobot;
  */
 public class RobotControleur extends IterativeRobot {
 
+	public static final int GRIMPEUR_MOTEUR = 12; // SP 5
+	public static final boolean INVERSION_GRIMPEUR_MOTEUR = false;
+	
+	VictorSP moteurGrimpeur;
+
 	/**
 	 * This function is run when the robot is first started up and should be
 	 * used for any initialization code.
@@ -19,6 +25,7 @@ public class RobotControleur extends IterativeRobot {
 	@Override
 	public void robotInit() {
 		System.out.println("robotInit()");
+		moteurGrimpeur = new VictorSP(GRIMPEUR_MOTEUR);
 	}
 
 	/**
@@ -35,6 +42,7 @@ public class RobotControleur extends IterativeRobot {
 	@Override
 	public void autonomousPeriodic() {
 		System.out.println("autonomousPeriodic()");
+		moteurGrimpeur.set(1); // grimper
 	}
 
 	/**
@@ -52,6 +60,7 @@ public class RobotControleur extends IterativeRobot {
 	@Override
 	public void teleopPeriodic() {
 		System.out.println("teleopPeriodic()");
+		moteurGrimpeur.set(1); // descendre
 	}
 
 	/**
@@ -68,6 +77,7 @@ public class RobotControleur extends IterativeRobot {
 	@Override
 	public void testInit() {
 		System.out.println("testInit()");
+		moteurGrimpeur.set(0); // arreter grimpeur
 	}
 	
 }
