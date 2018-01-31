@@ -1,1 +1,1 @@
-# formation-grimpeur
+# projet-initial
